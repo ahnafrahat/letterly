@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <Router basename="/letterly">
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
