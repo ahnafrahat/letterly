@@ -1,11 +1,20 @@
-.letter-view-container {
+.letter-view-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  padding: 20px 0;
+}
+
+.letter-view-container {
+  min-height: auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .letter-view-loading {
@@ -40,10 +49,10 @@
 
 .letter-paper {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
   padding: 60px 80px;
   max-width: 800px;
   width: 100%;
@@ -56,6 +65,12 @@
     linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
   background-position: 0 0;
+  margin-bottom: 30px;
+  min-height: auto;
+  height: auto;
+  overflow: visible;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .letter-paper::before {
@@ -69,7 +84,7 @@
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-  border-radius: 8px;
+  border-radius: 12px;
   pointer-events: none;
 }
 
@@ -98,6 +113,8 @@
   font-family: 'Georgia', 'Times New Roman', serif;
   text-align: justify;
   text-indent: 2em;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .letter-content::first-line {
@@ -126,9 +143,17 @@
 }
 
 .letter-view-footer {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
   color: #7f8c8d;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 800px;
+  width: 100%;
 }
 
 .letter-view-footer p {
@@ -153,6 +178,65 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
+.download-pdf-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.download-pdf-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+.download-pdf-btn:disabled {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.download-pdf-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
 /* Vintage paper effect */
 .letter-paper::after {
   content: '';
@@ -169,47 +253,171 @@
       rgba(0, 0, 0, 0.02) 2px,
       rgba(0, 0, 0, 0.02) 4px
     );
-  border-radius: 8px;
+  border-radius: 12px;
   pointer-events: none;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-  .letter-view-container {
-    padding: 20px 10px;
+  .letter-view-wrapper {
+    min-height: 100vh;
+    padding: 10px 0;
   }
-  
-  .letter-paper {
-    padding: 40px 30px;
-    margin: 0 10px;
-    background-size: 100% 1.1em;
-  }
-  
-  .letter-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-  
-  .letter-header {
-    margin-bottom: 30px;
-  }
-  
-  .letter-footer {
-    margin-top: 40px;
-  }
-}
 
-@media (max-width: 480px) {
+  .letter-view-container {
+    padding: 10px;
+    min-height: auto;
+    width: 100%;
+  }
+  
   .letter-paper {
     padding: 30px 20px;
-    background-size: 100% 1em;
+    margin: 0 5px 20px 5px;
+    background-size: 100% 1.1em;
+    border-radius: 8px;
+    min-height: auto;
+    height: auto;
+    overflow: visible;
   }
   
   .letter-content {
     font-size: 1rem;
     line-height: 1.7;
+    text-indent: 1.5em;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   
-  .letter-view-error h1 {
-    font-size: 2rem;
+  .letter-header {
+    margin-bottom: 25px;
   }
+  
+  .letter-footer {
+    margin-top: 30px;
+  }
+
+  .letter-date {
+    font-size: 1rem;
+  }
+
+  .letter-signature p {
+    font-size: 1rem;
+  }
+
+  .sender-email {
+    font-size: 0.9rem !important;
+  }
+  
+  .letter-view-footer {
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .letter-view-footer p {
+    font-size: 1rem;
+  }
+
+  .download-pdf-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .create-your-own {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .scroll-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-view-wrapper {
+    min-height: 100vh;
+    padding: 5px 0;
+  }
+
+  .letter-view-container {
+    padding: 5px;
+    min-height: auto;
+    width: 100%;
+  }
+  
+  .letter-paper {
+    padding: 25px 15px;
+    margin: 0 2px 15px 2px;
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .letter-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-indent: 1em;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .letter-date {
+    font-size: 0.9rem;
+  }
+
+  .letter-signature p {
+    font-size: 0.9rem;
+  }
+
+  .sender-email {
+    font-size: 0.85rem !important;
+  }
+
+  .letter-view-footer {
+    padding: 12px;
+  }
+
+  .letter-view-footer p {
+    font-size: 0.9rem;
+  }
+
+  .download-pdf-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .create-your-own {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .scroll-to-top-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 } 
