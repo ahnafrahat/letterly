@@ -1,0 +1,499 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dashboard-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  color: #667eea;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-button {
+  background: #667eea;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.user-info span {
+  color: #666;
+  font-weight: 500;
+}
+
+.logout-button {
+  background: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.letter-editor {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.letter-editor h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.editor-subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.editor-container {
+  margin-bottom: 30px;
+}
+
+.letter-textarea {
+  width: 100%;
+  min-height: 400px;
+  resize: vertical;
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+}
+
+.letter-textarea:focus {
+  background-color: white;
+  border-color: #667eea;
+}
+
+.letter-textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.create-letter-button {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.create-letter-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.create-letter-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* My Letters Page Styles */
+.my-letters-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.my-letters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.my-letters-header h2 {
+  color: #333;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.create-new-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-new-button:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.loading-letters {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.no-letters {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-letters p {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.create-first-letter-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-first-letter-button:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.letter-card {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.letter-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.letter-date {
+  color: #666;
+  font-weight: 500;
+}
+
+.letter-id {
+  color: #999;
+  font-family: monospace;
+  background: #e9ecef;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.letter-content {
+  margin-bottom: 20px;
+}
+
+.letter-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.letter-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-button, .edit-button, .delete-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 80px;
+}
+
+.preview-button {
+  background: #28a745;
+  color: white;
+}
+
+.preview-button:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.edit-button {
+  background: #ffc107;
+  color: #212529;
+}
+
+.edit-button:hover {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+
+.delete-button {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+/* Edit Letter Page Styles */
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.editor-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.cancel-button {
+  background: #6c757d;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+.save-button {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.save-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .user-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .letter-editor {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+  
+  .letter-editor h2 {
+    font-size: 1.5rem;
+  }
+  
+  .letter-textarea {
+    min-height: 300px;
+    font-size: 1rem;
+  }
+
+  .my-letters-container {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+
+  .my-letters-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .my-letters-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .letters-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .letter-card {
+    padding: 20px;
+  }
+
+  .letter-card-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .letter-actions {
+    flex-direction: column;
+  }
+
+  .preview-button, .edit-button, .delete-button {
+    flex: none;
+    width: 100%;
+  }
+
+  .editor-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .editor-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cancel-button, .save-button {
+    width: 100%;
+  }
+} 

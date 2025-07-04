@@ -1,0 +1,215 @@
+.letter-view-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-view-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.letter-view-error {
+  text-align: center;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.letter-view-error h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #dc3545;
+}
+
+.letter-view-error p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.letter-paper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 60px 80px;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.8;
+  color: #2c3e50;
+  background-image: 
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  background-position: 0 0;
+}
+
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.letter-header {
+  margin-bottom: 40px;
+  text-align: right;
+}
+
+.letter-date {
+  font-style: italic;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.letter-body {
+  margin-bottom: 40px;
+}
+
+.letter-content {
+  font-size: 1.2rem;
+  line-height: 2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #2c3e50;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+.letter-content::first-line {
+  text-indent: 0;
+}
+
+.letter-footer {
+  margin-top: 60px;
+  text-align: right;
+}
+
+.letter-signature {
+  font-style: italic;
+  color: #34495e;
+}
+
+.letter-signature p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.sender-email {
+  color: #7f8c8d !important;
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+
+.letter-view-footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.letter-view-footer p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.create-your-own {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.create-your-own:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Vintage paper effect */
+.letter-paper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 4px
+    );
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .letter-view-container {
+    padding: 20px 10px;
+  }
+  
+  .letter-paper {
+    padding: 40px 30px;
+    margin: 0 10px;
+    background-size: 100% 1.1em;
+  }
+  
+  .letter-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .letter-header {
+    margin-bottom: 30px;
+  }
+  
+  .letter-footer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-paper {
+    padding: 30px 20px;
+    background-size: 100% 1em;
+  }
+  
+  .letter-content {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .letter-view-error h1 {
+    font-size: 2rem;
+  }
+} 
